@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './assets/boxicons-2.0.7/css/boxicons.min.css';
+import './assets/css/grid.css';
+import './assets/css/index.css'
+
+import Layout from './components/layout/Layout';
 import reportWebVitals from './reportWebVitals';
+
+document.title = "admin_dashboard_react_01"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Layout />
   </React.StrictMode>
 );
 
