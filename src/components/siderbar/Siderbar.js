@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Link, Outlet } from 'react-router-dom'
 
 const Siderbar = () => {
   return (
     <div>
-        Siderbar
+        <Link to='/'>Dashboard</Link>
+        <Link to='customers'>Customers</Link>
+        <Outlet />
     </div>
   )
 }
