@@ -41,3 +41,29 @@
     align-items: center;
     padding: 20px;
 }
+.notification-item:hover{
+    background-color: var(--second-bg);
+}
+.notification-item i{
+    margin-right: 20px;
+    font-size: 1.5rem;
+}
+.topnav__right-user {
+    display: flex;
+    align-items: center;
+}
+
+.topnav__right-user__image{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+.topnav__right-user__image img{
+    width: 100%;
+}
+.topnav__right-user__name{
+    font-weight: 600;
+    font-size: 1rem;
+}

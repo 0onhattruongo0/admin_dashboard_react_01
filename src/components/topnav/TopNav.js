@@ -3,6 +3,9 @@ import './topnav.css'
 import Dropdown from '../dropdown/Dropdown';
 import notifications from '../../assets/JsonData/notification.json';
 import { Link } from 'react-router-dom';
+import user_image from './../../logo.svg';
+// import user_menu from '../../assets/JsonData/user_menus.json'
+
 
 const renderNotifications = (item,index) =>{
     return (
@@ -12,6 +15,23 @@ const renderNotifications = (item,index) =>{
         </div>
     )
 }
+const curr_user = {
+  displayname: 'Reactjs',
+  image: user_image
+}
+const renderUserToggle = (user)=>{
+  return(
+    <div className='topnav__right-user'>
+      <div className='topnav__right-user__image'>
+        <img src={user.image} alt={user.displayname} />
+      </div>
+      <div className='topnav__right-user__name'>
+        {user.displayname}
+      </div>
+    </div>
+  )
+}
+
 
 const TopNav = () => {
   return (
@@ -21,7 +41,12 @@ const TopNav = () => {
         <i className='bx bx-search'></i>
       </div>
       <div className='topnav__right'>
-        <div className='topnav__right-item'><Dropdown icon='bx bx-user'/></div>
+        <div className='topnav__right-item'>
+          <Dropdown  customToggle={() => renderUserToggle(curr_user)}
+                        // contentData={user_menu}
+                        // renderItems={(item, index) => renderUserMenu(item, index)}
+          />
+        </div>
         <div className='topnav__right-item'>
             <Dropdown icon='bx bx-bell' 
             badge='12' contentData={notifications} 
