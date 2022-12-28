@@ -4,7 +4,7 @@ import Dropdown from '../dropdown/Dropdown';
 import notifications from '../../assets/JsonData/notification.json';
 import { Link } from 'react-router-dom';
 import user_image from './../../logo.svg';
-// import user_menu from '../../assets/JsonData/user_menus.json'
+import user_menu from '../../assets/JsonData/user_menus.json'
 
 
 const renderNotifications = (item,index) =>{
@@ -32,6 +32,15 @@ const renderUserToggle = (user)=>{
   )
 }
 
+const renderUserMenu= (item,index)=>(
+  <Link to='/' key={index}>
+    <div className='notification-item'>
+      <i className={item.icon}></i>
+      <span>{item.content}</span>
+    </div>
+  </Link>
+)
+
 
 const TopNav = () => {
   return (
@@ -43,8 +52,8 @@ const TopNav = () => {
       <div className='topnav__right'>
         <div className='topnav__right-item'>
           <Dropdown  customToggle={() => renderUserToggle(curr_user)}
-                        // contentData={user_menu}
-                        // renderItems={(item, index) => renderUserMenu(item, index)}
+                    contentData={user_menu}
+                    renderItems={(item, index) => renderUserMenu(item, index)}
           />
         </div>
         <div className='topnav__right-item'>
