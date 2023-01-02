@@ -1,6 +1,7 @@
 import React from 'react';
 import './topnav.css'
 import Dropdown from '../dropdown/Dropdown';
+import ThemeMenu from '../thememenu/ThemeMenu';
 import notifications from '../../assets/JsonData/notification.json';
 import { Link } from 'react-router-dom';
 import user_image from './../../logo.svg';
@@ -63,7 +64,7 @@ const TopNav = () => {
             renderFootter = {()=><Link to='/'>View all</Link>}
             />
         </div>
-        <div className='topnav__right-item'><Dropdown/></div>
+        <div className='topnav__right-item'><ThemeMenu /></div>
       </div>
     </div>
   )
