@@ -5,16 +5,26 @@ import './assets/css/grid.css';
 import './assets/css/theme.css';
 import './assets/css/index.css'
 
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './redux/reducers';
+
 import Layout from './components/layout/Layout';
 import reportWebVitals from './reportWebVitals';
 
+
+const store = createStore(
+  rootReducer
+)
 document.title = "admin_dashboard_react_01"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <Layout />
-  </React.StrictMode>
+  <Provider store={store}>
+      <React.StrictMode>
+        <Layout />
+      </React.StrictMode>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

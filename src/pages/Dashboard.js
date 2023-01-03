@@ -6,6 +6,9 @@ import StatusCard from '../components/status-card/StatusCard';
 import Table from '../components/table/Table';
 import Badge from '../components/badge/Badge';
 
+import { useSelector } from 'react-redux';
+// import ThemeAction from '../redux/actions/ThemeAction'
+
 const chartOptions = {
   series:[{
     name: 'Online Customers',
@@ -154,6 +157,7 @@ const renderOrderBody = (item, index) => (
 )
 
 function Dashboard() {
+  const themeReducer = useSelector(state=> state.ThemeReducer.mode)
   return (
     <div>
       <h2 className='page-header'>Dashboard</h2>
@@ -176,7 +180,14 @@ function Dashboard() {
         <div className='col-6'>
             <div className='card full-height'>
               <Chart 
-              options={chartOptions.options} 
+              // options={chartOptions.options} 
+              options={themeReducer === 'theme-mode-dark' ? {
+                ...chartOptions.options,
+                theme : {mode: 'dark'}
+              } : {
+                ...chartOptions.options,
+                theme : {mode: 'light'}
+              }} 
               series={chartOptions.series}
               type='line'
               height='100%'

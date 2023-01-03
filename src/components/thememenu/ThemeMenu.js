@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './thememenu.css'
+import { useDispatch } from 'react-redux';
+import ThemeAction from '../../redux/actions/ThemeAction'
 
 const mode_settings = [
     {
@@ -68,13 +70,18 @@ const ThemeMenu = () => {
     const closeMenu = () => menu_ref.current.classList.remove('active')
     const [currMode,setCurrMode] = useState('light')
     const [currColor,setCurrColor] = useState('blue')
+
+    const dispatch = useDispatch()
+
     const setMod = mode=>{
         setCurrMode(mode.id)
         localStorage.setItem('themeMode',mode.class)
+        dispatch(ThemeAction.setMode(mode.class))
     }
     const setColor = color =>{
         setCurrColor(color.id)
         localStorage.setItem('colorMode',color.class)
+        dispatch(ThemeAction.setColor(color.class))
     }
     useEffect (() =>{
         const themeClass = mode_settings.find(e=>e.class === localStorage.getItem('themeMode','theme-mode-light'))
